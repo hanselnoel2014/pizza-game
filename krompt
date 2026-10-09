@@ -1,0 +1,35 @@
+I want to make a game called pizza maker
+The idea of the game id to create a pizza and eat it at the end
+there should be several toppings like Tomato sauce,pepperoni,cheese,jalepenos and ext
+there should be a start button
+You should be able to drag the toppings to the pizzaOnce your done with the pizza there should be a done button
+once the done button is clicked there should be a oven annimation
+-------------------------------------------------------------------------------------------------------------------
+tech stack
+fastapi+jinja+html+css
+app.py+uvicon server
+
+
+Make the toppings bigger on the pizza
+You should be able to see the pizza baked when you eat it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
