@@ -8,128 +8,163 @@
 </head>
 <body>
 
-  <!-- ── START SCREEN ── -->
+  <!-- ══════════════════════════════════════
+       START SCREEN
+  ══════════════════════════════════════ -->
   <div id="start-screen" class="screen active">
     <div class="start-card">
-      <div class="pizza-logo">🍕</div>
-      <h1>Pizza Maker</h1>
-      <p>Build your dream pizza and send it to the oven!</p>
-      <button id="start-btn" class="btn-primary">Start Cooking</button>
+      <div class="start-title">PIZZA<br>MAKER!</div>
+      <div class="start-pizza-art">
+        <svg viewBox="0 0 200 200" width="180" height="180">
+          <!-- crust -->
+          <circle cx="100" cy="100" r="95" fill="#c8892a"/>
+          <circle cx="100" cy="100" r="80" fill="#e8a030"/>
+          <!-- sauce -->
+          <circle cx="100" cy="100" r="72" fill="#c0392b"/>
+          <!-- cheese streaks -->
+          <circle cx="100" cy="100" r="72" fill="#f4d03f" opacity="0.85"/>
+          <!-- toppings decoration -->
+          <circle cx="75" cy="80" r="10" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+          <circle cx="125" cy="75" r="8" fill="#a93226"/>
+          <circle cx="110" cy="115" r="10" fill="#c0392b" stroke="#fff" stroke-width="2"/>
+          <circle cx="70" cy="120" r="7" fill="#1e8449"/>
+          <circle cx="130" cy="110" r="6" fill="#1a5276"/>
+          <!-- cheese lines -->
+          <line x1="60" y1="90" x2="85" y2="95" stroke="#fff8" stroke-width="3" stroke-linecap="round"/>
+          <line x1="115" y1="100" x2="140" y2="98" stroke="#fff8" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <button id="start-btn" class="start-btn">▶ START!</button>
     </div>
   </div>
 
-  <!-- ── GAME SCREEN ── -->
+  <!-- ══════════════════════════════════════
+       GAME SCREEN
+  ══════════════════════════════════════ -->
   <div id="game-screen" class="screen">
-    <header class="game-header">
-      <h2>🍕 Pizza Maker</h2>
-      <p class="subtitle">Drag toppings onto your pizza</p>
-    </header>
 
-    <div class="game-layout">
-
-      <!-- Toppings palette -->
-      <aside class="toppings-panel">
-        <h3>Toppings</h3>
-        <div class="toppings-grid">
-          <div class="topping" draggable="true" data-topping="sauce"      title="Tomato Sauce">🍅<span>Tomato Sauce</span></div>
-          <div class="topping" draggable="true" data-topping="cheese"     title="Cheese">🧀<span>Cheese</span></div>
-          <div class="topping" draggable="true" data-topping="pepperoni"  title="Pepperoni">🥩<span>Pepperoni</span></div>
-          <div class="topping" draggable="true" data-topping="jalapeno"   title="Jalapeños">🌶️<span>Jalapeños</span></div>
-          <div class="topping" draggable="true" data-topping="mushroom"   title="Mushrooms">🍄<span>Mushrooms</span></div>
-          <div class="topping" draggable="true" data-topping="olive"      title="Olives">🫒<span>Olives</span></div>
-          <div class="topping" draggable="true" data-topping="onion"      title="Onions">🧅<span>Onions</span></div>
-          <div class="topping" draggable="true" data-topping="basil"      title="Basil">🌿<span>Basil</span></div>
-          <div class="topping" draggable="true" data-topping="pineapple"  title="Pineapple">🍍<span>Pineapple</span></div>
-          <div class="topping" draggable="true" data-topping="bacon"      title="Bacon">🥓<span>Bacon</span></div>
-        </div>
-      </aside>
-
-      <!-- Pizza drop zone -->
-      <main class="pizza-area">
-        <div id="pizza-drop" class="pizza-base">
-          <div class="pizza-crust-ring"></div>
-          <div class="pizza-sauce-layer" id="sauce-layer"></div>
-          <div class="pizza-cheese-layer" id="cheese-layer"></div>
-          <div id="topping-layer" class="topping-layer"></div>
-          <p class="drop-hint" id="drop-hint">Drop toppings here</p>
-        </div>
-
-        <div class="pizza-actions">
-          <button id="reset-btn" class="btn-secondary">🗑 Clear</button>
-          <button id="done-btn"  class="btn-primary">Done! Bake it 🔥</button>
-        </div>
-
-        <div id="recipe-log" class="recipe-log">
-          <span>Your pizza: </span><span id="recipe-text">nothing yet…</span>
-        </div>
-      </main>
-
+    <!-- Left sidebar: category tabs -->
+    <div class="sidebar">
+      <button class="cat-tab active" data-cat="base">
+        <svg viewBox="0 0 50 50" width="36" height="36"><circle cx="25" cy="25" r="22" fill="#e8a030"/><circle cx="25" cy="25" r="16" fill="#f4d03f"/></svg>
+        <span>BASE</span>
+      </button>
+      <button class="cat-tab" data-cat="veggies">
+        <svg viewBox="0 0 50 50" width="36" height="36"><circle cx="25" cy="25" r="20" fill="#c0392b" stroke="#fff" stroke-width="3"/><line x1="25" y1="10" x2="25" y2="40" stroke="#8B0000" stroke-width="3"/><line x1="10" y1="25" x2="40" y2="25" stroke="#8B0000" stroke-width="3"/></svg>
+        <span>VEGGIES</span>
+      </button>
+      <button class="cat-tab" data-cat="meats">
+        <svg viewBox="0 0 50 50" width="36" height="36"><ellipse cx="25" cy="25" rx="20" ry="16" fill="#c0392b"/><ellipse cx="25" cy="25" rx="14" ry="10" fill="#e74c3c" opacity="0.6"/></svg>
+        <span>MEATS</span>
+      </button>
+      <button class="cat-tab" data-cat="extras">
+        <svg viewBox="0 0 50 50" width="36" height="36"><circle cx="18" cy="28" r="9" fill="#7d4f2a"/><circle cx="32" cy="28" r="9" fill="#7d4f2a"/><circle cx="25" cy="18" r="9" fill="#a0622a"/></svg>
+        <span>EXTRAS</span>
+      </button>
     </div>
-  </div>
 
-  <!-- ── OVEN SCREEN ── -->
-  <div id="oven-screen" class="screen">
-    <div class="oven-wrapper">
-      <div class="oven" id="oven">
-        <div class="oven-top">
-          <div class="oven-brand">🍕 PIZZOVEN 3000</div>
+    <!-- Middle: topping items per category -->
+    <div class="toppings-list" id="toppings-list">
+      <!-- populated by JS -->
+    </div>
+
+    <!-- Main: pizza + controls -->
+    <div class="main-area">
+      <button id="cook-btn" class="cook-btn">▶ COOK!</button>
+
+      <div class="pizza-stage">
+        <div id="pizza-drop" class="pizza-drop">
+          <!-- SVG pizza base -->
+          <svg id="pizza-svg" viewBox="0 0 420 420" width="420" height="420" style="position:absolute;inset:0;pointer-events:none;">
+            <!-- outer crust -->
+            <circle cx="210" cy="210" r="205" fill="#b8751a"/>
+            <circle cx="210" cy="210" r="195" fill="#c8892a"/>
+            <circle cx="210" cy="210" r="180" fill="#d4952e"/>
+            <!-- inner pizza surface -->
+            <circle cx="210" cy="210" r="165" fill="#e8a030" id="pizza-sauce-circle"/>
+            <!-- cheese layer -->
+            <circle cx="210" cy="210" r="165" fill="#f4d03f" id="pizza-cheese-circle" opacity="0"/>
+            <!-- crust texture dots -->
+            <circle cx="70"  cy="150" r="5" fill="#a0681a" opacity="0.5"/>
+            <circle cx="60"  cy="210" r="4" fill="#a0681a" opacity="0.4"/>
+            <circle cx="75"  cy="270" r="5" fill="#a0681a" opacity="0.5"/>
+            <circle cx="350" cy="150" r="4" fill="#a0681a" opacity="0.4"/>
+            <circle cx="360" cy="210" r="5" fill="#a0681a" opacity="0.5"/>
+            <circle cx="348" cy="272" r="4" fill="#a0681a" opacity="0.4"/>
+            <circle cx="130" cy="55"  r="4" fill="#a0681a" opacity="0.5"/>
+            <circle cx="210" cy="45"  r="5" fill="#a0681a" opacity="0.4"/>
+            <circle cx="290" cy="55"  r="4" fill="#a0681a" opacity="0.5"/>
+            <circle cx="130" cy="365" r="4" fill="#a0681a" opacity="0.4"/>
+            <circle cx="210" cy="375" r="5" fill="#a0681a" opacity="0.5"/>
+            <circle cx="290" cy="365" r="4" fill="#a0681a" opacity="0.4"/>
+          </svg>
+          <!-- dropped toppings land here -->
+          <div id="topping-layer" class="topping-layer"></div>
+          <div class="drop-hint" id="drop-hint">Drag toppings here!</div>
         </div>
+      </div>
+
+      <div class="bottom-bar">
+        <button id="undo-btn"  class="action-btn undo-btn">↩ UNDO</button>
+        <button id="reset-btn" class="action-btn reset-btn">↺ START OVER</button>
+      </div>
+    </div>
+
+  </div><!-- /game-screen -->
+
+  <!-- ══════════════════════════════════════
+       OVEN SCREEN
+  ══════════════════════════════════════ -->
+  <div id="oven-screen" class="screen">
+    <div class="oven-wrap">
+      <div class="oven">
+        <div class="oven-top"><span>🍕 PIZZOVEN 3000</span></div>
         <div class="oven-body">
           <div class="oven-window">
             <div class="oven-glass">
-              <div class="pizza-in-oven" id="pizza-in-oven">🍕</div>
-              <div class="heat-waves">
-                <span></span><span></span><span></span>
-              </div>
+              <div class="oven-pizza" id="oven-pizza">🍕</div>
+              <div class="heat-waves"><span></span><span></span><span></span><span></span></div>
             </div>
           </div>
-          <div class="oven-door-handle"></div>
+          <div class="oven-handle"></div>
         </div>
         <div class="oven-controls">
           <div class="oven-dial"></div>
           <div class="oven-dial"></div>
-          <div class="oven-light" id="oven-light"></div>
+          <div class="oven-indicator"></div>
         </div>
       </div>
-      <p class="oven-status" id="oven-status">Heating up…</p>
+      <p class="oven-msg" id="oven-msg">Heating up…</p>
     </div>
   </div>
 
-  <!-- ── EAT SCREEN ── -->
+  <!-- ══════════════════════════════════════
+       EAT SCREEN
+  ══════════════════════════════════════ -->
   <div id="eat-screen" class="screen">
-    <div class="eat-card">
-      <!-- Pizza preview rendered by JS -->
-      <div class="baked-pizza-wrap">
-        <div id="eat-pizza-preview" class="baked-pizza-base">
-          <div class="pizza-crust-ring"></div>
-          <div class="baked-sauce-layer"  id="eat-sauce-layer"></div>
-          <div class="baked-cheese-layer" id="eat-cheese-layer"></div>
-          <div id="eat-topping-layer"     class="baked-topping-layer"></div>
-        </div>
+    <div class="eat-wrap">
+      <div class="eat-title">YOUR PIZZA<br>IS READY! 🎉</div>
+      <div class="eat-pizza-preview" id="eat-pizza-preview">
+        <!-- rendered by JS -->
       </div>
-      <h2>Your Pizza is Ready!</h2>
-      <p id="eat-recipe"></p>
-      <div class="eat-actions">
-        <button id="eat-btn"    class="btn-primary">😋 Eat it!</button>
-        <button id="replay-btn" class="btn-secondary">🔄 Make Another</button>
+      <p class="eat-recipe" id="eat-recipe"></p>
+      <div class="eat-btns">
+        <button id="eat-btn"    class="eat-action-btn eat-primary">😋 EAT IT!</button>
+        <button id="replay-btn" class="eat-action-btn eat-secondary">↺ MAKE ANOTHER</button>
       </div>
     </div>
   </div>
 
-  <!-- ── NOM SCREEN ── -->
+  <!-- ══════════════════════════════════════
+       NOM SCREEN
+  ══════════════════════════════════════ -->
   <div id="nom-screen" class="screen">
-    <div class="nom-card">
-      <!-- Pizza preview rendered by JS -->
-      <div class="baked-pizza-wrap nom-pizza-wrap">
-        <div id="nom-pizza-preview" class="baked-pizza-base nom-pizza-base">
-          <div class="pizza-crust-ring"></div>
-          <div class="baked-sauce-layer"  id="nom-sauce-layer"></div>
-          <div class="baked-cheese-layer" id="nom-cheese-layer"></div>
-          <div id="nom-topping-layer"     class="baked-topping-layer"></div>
-        </div>
+    <div class="nom-wrap">
+      <div class="nom-pizza-preview" id="nom-pizza-preview">
+        <!-- rendered by JS -->
       </div>
-      <h2 id="nom-text">Nom nom nom…</h2>
-      <button id="play-again-btn" class="btn-primary" style="display:none;">🔄 Play Again</button>
+      <div class="nom-msg" id="nom-msg">NOM NOM NOM! 😋</div>
+      <button id="play-again-btn" class="eat-action-btn eat-primary" style="display:none;margin-top:24px;">▶ PLAY AGAIN</button>
     </div>
   </div>
 
